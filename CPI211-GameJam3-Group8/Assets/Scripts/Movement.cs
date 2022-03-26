@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var targetVect = new Vector3(_in.InputVector.x, 0, _in.InputVector.y);
+        var targetVect = new Vector3(_in.InputVector.x, _in.InputVector.y * 3, _in.InputVector.z);
         MovePlayer(targetVect);
     }
 
