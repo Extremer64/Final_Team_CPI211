@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54d21f6ece3b46479f0c328f8c6007e0, type: 3}
-  m_Name: GOLD
+  m_Name: Da Pink
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 1, g: 0.78039217, b: 0.34117648, a: 1}
-  topRight: {r: 1, g: 0.78039217, b: 0.34117648, a: 1}
-  bottomLeft: {r: 1, g: 0.6117647, b: 0.19215687, a: 1}
-  bottomRight: {r: 1, g: 0.6117647, b: 0.19215687, a: 1}
+  topLeft: {r: 1, g: 0.3411765, b: 0.34631225, a: 1}
+  topRight: {r: 1, g: 0.34509805, b: 0.34901962, a: 1}
+  bottomLeft: {r: 1, g: 0.19215685, b: 0.28675124, a: 1}
+  bottomRight: {r: 1, g: 0.19215687, b: 0.2901961, a: 1}
