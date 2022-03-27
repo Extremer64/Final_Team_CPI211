@@ -14,6 +14,7 @@ public class CookingStation : MonoBehaviour
     private Vector3 scale;
     private float timer = 0.0f;
     private ItemDropoff[] collectionPoints;
+    private AudioSource fooddone;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class CookingStation : MonoBehaviour
         clones.Push(Instantiate(template, transform.position, transform.rotation, transform));
         Destroy(template);
         collectionPoints = FindObjectsOfType<ItemDropoff>();
+        fooddone = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -44,6 +46,7 @@ public class CookingStation : MonoBehaviour
         {
             timer = 0.01f;
             cooked = true;
+            fooddone.Play();
         }
         else if (!cooked)
         {
