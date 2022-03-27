@@ -21,6 +21,16 @@ public class CookingStation : MonoBehaviour
         clones.Push(Instantiate(template, transform.position, transform.rotation, transform));
         Destroy(template);
         collectionPoints = FindObjectsOfType<ItemDropoff>();
+        int nonRicePoints = 0;
+        for (int i = 0; i < collectionPoints.Length; i++)
+        {
+            if(collectionPoints[i].itemType != ItemHandler.ItemType.FriedRice)
+            {
+                collectionPoints[nonRicePoints] = collectionPoints[i];
+                nonRicePoints++;
+            }
+        }
+        System.Array.Resize<ItemDropoff>(ref collectionPoints, nonRicePoints);
     }
     void Update()
     {
