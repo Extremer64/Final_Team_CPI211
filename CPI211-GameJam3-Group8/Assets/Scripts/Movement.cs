@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
 
     private inputHandle _in;
+    private AudioSource source;
+    private bool footsteps = false;
 
     [SerializeField]
     private float moveS;
@@ -13,6 +15,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         _in = GetComponent<inputHandle>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,17 @@ public class Movement : MonoBehaviour
         if(targetVect != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVect), moveS * Time.deltaTime);
+            if(!footsteps)
+            {
+                source.Play();
+                footsteps = true;
+            }
+        }
+
+        if(targetVect == Vector3.zero && footsteps)
+        {
+            source.Stop();
+            footsteps = false;
         }
     }
 
