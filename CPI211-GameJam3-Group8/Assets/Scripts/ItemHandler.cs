@@ -22,11 +22,10 @@ public class ItemHandler : MonoBehaviour
 
     void Update()
     {
-        if(transform.localPosition.y > -0.35 && transform.localScale.magnitude > 0)
+        if(transform.localPosition.y < -0.35)
         {
             spoilage += Time.deltaTime * spoilRate;
         }
-        transform.localScale -= Vector3.one * spoilage;
     }
 
     public void Highlight()

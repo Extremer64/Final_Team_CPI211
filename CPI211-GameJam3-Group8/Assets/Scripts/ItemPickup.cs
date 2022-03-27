@@ -21,14 +21,14 @@ public class ItemPickup : MonoBehaviour
         {
             pickedUp.transform.parent = pickedUp.GetComponent<ItemHandler>().defaultParent;
             pickedUp.GetComponent<Rigidbody>().isKinematic = false;
-            pickedUp.GetComponent<Collider>().enabled = true;
+            pickedUp.GetComponent<Collider>().isTrigger = false;
             pickedUp = null;
         }
         if (pickedUp != null && pickedUp.transform.parent != transform)
         {
             pickedUp.transform.parent = transform;
             pickedUp.GetComponent<Rigidbody>().isKinematic = true;
-            pickedUp.GetComponent<Collider>().enabled = false;
+            pickedUp.GetComponent<Collider>().isTrigger = true;
         }
 
         foreach (ItemHandler item in GetComponentsInChildren<ItemHandler>())
@@ -37,7 +37,7 @@ public class ItemPickup : MonoBehaviour
             {
                 item.transform.parent = pickedUp.GetComponent<ItemHandler>().defaultParent;
                 item.GetComponent<Rigidbody>().isKinematic = false;
-                item.GetComponent<Collider>().enabled = true;
+                item.GetComponent<Collider>().isTrigger = false;
             }
         }
     }

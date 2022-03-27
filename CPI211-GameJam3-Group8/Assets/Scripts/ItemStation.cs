@@ -24,7 +24,9 @@ public class ItemStation : MonoBehaviour
         {
             clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
             clones.Peek().transform.localScale = scale;
+            clones.Peek().GetComponent<Collider>().isTrigger = false;
         }
+
         if (timer > 0.0f)
         {
             timer -= Time.deltaTime;
@@ -33,6 +35,7 @@ public class ItemStation : MonoBehaviour
         {
             clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
             clones.Peek().transform.localScale = scale;
+            clones.Peek().GetComponent<Collider>().isTrigger = false;
             timer = 0.0f;
         }
     }
