@@ -44,7 +44,7 @@ public class ItemPickup : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.TryGetComponent<ItemHandler>(out ItemHandler itemHandler) && !grabable.Contains(collision.gameObject) && collision.transform.localPosition.y > -0.35)
+        if(collision.gameObject.TryGetComponent<ItemHandler>(out ItemHandler itemHandler) && !grabable.Contains(collision.gameObject))
         {
             itemHandler.Highlight();
             grabable.Push(collision.gameObject);

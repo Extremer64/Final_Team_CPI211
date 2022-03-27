@@ -20,7 +20,11 @@ public class ItemStation : MonoBehaviour
     }
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.E))
+        {
+            clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
+            clones.Peek().transform.localScale = scale;
+        }
         if (timer > 0.0f)
         {
             timer -= Time.deltaTime;
