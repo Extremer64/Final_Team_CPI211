@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class TimeSystem : MonoBehaviour
+public class TimerSystem : MonoBehaviour
 {
     public GameObject Timer;
     [SerializeField] public float timer;
@@ -11,7 +12,7 @@ public class TimeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 180;
+
     }
 
     // Update is called once per frame
@@ -35,6 +36,12 @@ public class TimeSystem : MonoBehaviour
         else
         {
             Timer.GetComponent<TMPro.TextMeshProUGUI>().text = "Time: " + minutes + ":" + seconds;
+        }
+
+        if (timer <= 0)
+        {
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
         }
     }
 }
