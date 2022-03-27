@@ -42,6 +42,14 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
+    public void Dropoff(Transform dropoff)
+    {
+        pickedUp.transform.parent = dropoff;
+        pickedUp.GetComponent<Rigidbody>().isKinematic = true;
+        pickedUp.GetComponent<Collider>().isTrigger = true;
+        pickedUp = null;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent<ItemHandler>(out ItemHandler itemHandler) && !grabable.Contains(collision.gameObject))
@@ -50,7 +58,7 @@ public class ItemPickup : MonoBehaviour
             grabable.Push(collision.gameObject);
         }
     }
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<ItemHandler>(out ItemHandler itemHandler) && grabable.Contains(collision.gameObject))
         {
