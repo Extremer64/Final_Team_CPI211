@@ -8,13 +8,16 @@ public class Movement : MonoBehaviour
     private inputHandle _in;
     private AudioSource source;
     private bool footsteps = false;
+    private int collisionCount = 0;
+    public float jumpDelay = 0.25f;
+    private float jumpTracker = 0.0f;
 
     [SerializeField]
     private float moveS;
 
     private void Awake()
     {
-        _in = GetComponent<inputHandle>();
+        //_in = GetComponent<inputHandle>();
         source = GetComponent<AudioSource>();
         source.loop = true;
     }
@@ -22,7 +25,20 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var targetVect = new Vector3(_in.InputVector.x, _in.InputVector.y, _in.InputVector.z);
+        Vector3 targetVect = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        if (collisionCount != 0 && Input.GetAxis("Jump") > 0.0f && jumpTracker == 0.0f)
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 32.0f * moveS);
+            jumpTracker = jumpDelay;
+        }
+        else if (jumpTracker > 0.0f)
+        {
+            jumpTracker -= Time.deltaTime;
+        }
+        else if (jumpTracker < 0.0f)
+        {
+            jumpTracker = 0.0f;
+        }
         MovePlayer(targetVect);
         if(targetVect != Vector3.zero)
         {
@@ -45,5 +61,22 @@ public class Movement : MonoBehaviour
         //var spd = moveS * Time.deltaTime;
         //transform.Translate(targetV * spd);
         GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(transform.position, transform.position + targetV, moveS * Time.deltaTime));
+    }
+
+
+    //Detect when the object touches the ground and when it leaves, modifying drag accordingly
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            collisionCount++;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            collisionCount--;
+        }
     }
 }
