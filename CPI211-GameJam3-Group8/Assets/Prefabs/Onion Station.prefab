@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1317710577514620863
+--- !u!1 &2228742943421791286
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1317710577514620852}
-  - component: {fileID: 1317710577514620859}
-  - component: {fileID: 1317710577514620858}
-  - component: {fileID: 1317710577514620857}
-  - component: {fileID: 1317710577514620856}
+  - component: {fileID: 2228742943421791293}
+  - component: {fileID: 2228742943421791282}
+  - component: {fileID: 2228742943421791283}
+  - component: {fileID: 2228742943421791280}
+  - component: {fileID: 2228742943421791281}
   m_Layer: 6
   m_Name: Onion Station
   m_TagString: Untagged
@@ -20,36 +20,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1317710577514620852
+--- !u!4 &2228742943421791293
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317710577514620863}
+  m_GameObject: {fileID: 2228742943421791286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.039, y: 1, z: -1.554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1317099706491531463}
+  - {fileID: 2224813518621387598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1317710577514620859
+--- !u!33 &2228742943421791282
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317710577514620863}
+  m_GameObject: {fileID: 2228742943421791286}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1317710577514620858
+--- !u!23 &2228742943421791283
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317710577514620863}
+  m_GameObject: {fileID: 2228742943421791286}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,39 +84,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1317710577514620857
+--- !u!135 &2228742943421791280
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317710577514620863}
+  m_GameObject: {fileID: 2228742943421791286}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1317710577514620856
+--- !u!114 &2228742943421791281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317710577514620863}
+  m_GameObject: {fileID: 2228742943421791286}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6489a158e37f97e4d9df1badfc04c31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 1318146526266324871}
+  template: {fileID: 2228604962053303310}
   spawnDelay: 2.5
---- !u!1001 &1317710577477398121
+--- !u!1001 &2228742943190578656
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1317710577514620852}
+    m_TransformParent: {fileID: 2228742943421791293}
     m_Modifications:
     - target: {fileID: 1000013397514734, guid: 50147d929fb926b4eb555a4d0b89ab60, type: 3}
       propertyPath: m_Name
@@ -184,23 +184,23 @@ PrefabInstance:
       objectReference: {fileID: 4300002, guid: 56be052822e0d8d459a1d331a09d5f8a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50147d929fb926b4eb555a4d0b89ab60, type: 3}
---- !u!1 &1318146526266324871 stripped
+--- !u!1 &2228604962053303310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013397514734, guid: 50147d929fb926b4eb555a4d0b89ab60, type: 3}
-  m_PrefabInstance: {fileID: 1317710577477398121}
+  m_PrefabInstance: {fileID: 2228742943190578656}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1317099706491531463 stripped
+--- !u!4 &2224813518621387598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012772204206, guid: 50147d929fb926b4eb555a4d0b89ab60, type: 3}
-  m_PrefabInstance: {fileID: 1317710577477398121}
+  m_PrefabInstance: {fileID: 2228742943190578656}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1317710577222088775
+--- !u!54 &2228742944251192270
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318146526266324871}
+  m_GameObject: {fileID: 2228604962053303310}
   serializedVersion: 2
   m_Mass: 0.1
   m_Drag: 0
@@ -210,13 +210,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1317710577222088774
+--- !u!64 &2228742944251192271
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318146526266324871}
+  m_GameObject: {fileID: 2228604962053303310}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -224,20 +224,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 442120c1ba2d6ac4a9caa291dd678060, type: 3}
---- !u!114 &1317710577222088773
+--- !u!114 &2228742944251192268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318146526266324871}
+  m_GameObject: {fileID: 2228604962053303310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcc16a9ce81f40149b8e8b1b75a5d2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  defaultParent: {fileID: 1317710577514620852}
+  defaultParent: {fileID: 2228742943421791293}
   defaultMaterial: {fileID: 2100000, guid: dd4330fb196ead84ea9d14e6bbbe8ed5, type: 2}
   highlightMaterial: {fileID: 2100000, guid: bc8ed8d42b0536d42b315b5e41b3910c, type: 2}
   spoilage: 0

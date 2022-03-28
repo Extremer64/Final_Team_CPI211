@@ -25,10 +25,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetVect = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        Vector3 targetVect = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")).normalized;
         if (collisionCount != 0 && Input.GetAxis("Jump") > 0.0f && jumpTracker == 0.0f)
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 32.0f * moveS);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 48.0f * moveS);
             jumpTracker = jumpDelay;
         }
         else if (jumpTracker > 0.0f)
@@ -43,14 +43,14 @@ public class Movement : MonoBehaviour
         if(targetVect != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVect), moveS * Time.deltaTime);
-            if(!footsteps)
+            if(!footsteps && collisionCount != 0.0f)
             {
                 source.Play();
                 footsteps = true;
             }
         }
 
-        if(targetVect == Vector3.zero && footsteps)
+        if(targetVect == Vector3.zero && footsteps || collisionCount == 0.0f)
         {
             source.Pause();
             footsteps = false;
