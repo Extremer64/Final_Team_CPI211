@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     {
         _in = GetComponent<inputHandle>();
         source = GetComponent<AudioSource>();
+        source.loop = true;
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class Movement : MonoBehaviour
 
         if(targetVect == Vector3.zero && footsteps)
         {
-            source.Stop();
+            source.Pause();
             footsteps = false;
         }
     }
