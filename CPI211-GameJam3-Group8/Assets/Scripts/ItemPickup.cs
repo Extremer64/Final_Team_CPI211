@@ -9,7 +9,7 @@ public class ItemPickup : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) || Input.GetMouseButton(0))
         {
             if(grabable.Count != 0)
             {
