@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemHandler : MonoBehaviour
 {
-    public enum ItemType {Egg, Rice, Onion, Shrimp, FriedRice};
+    public enum ItemType {Egg, Rice, Onion, Pepper, Shrimp};
 
     public ItemType itemType;
 

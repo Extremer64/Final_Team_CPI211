@@ -22,16 +22,6 @@ public class CookingStation : MonoBehaviour
         clones.Push(Instantiate(template, transform.position, transform.rotation, transform));
         Destroy(template);
         collectionPoints = FindObjectsOfType<ItemDropoff>();
-        int nonRicePoints = 0;
-        for (int i = 0; i < collectionPoints.Length; i++)
-        {
-            if (collectionPoints[i].itemType != ItemHandler.ItemType.FriedRice)
-            {
-                collectionPoints[nonRicePoints] = collectionPoints[i];
-                nonRicePoints++;
-            }
-        }
-        System.Array.Resize<ItemDropoff>(ref collectionPoints, nonRicePoints);
         fooddone = GetComponent<AudioSource>();
     }
     void Update()
@@ -56,6 +46,10 @@ public class CookingStation : MonoBehaviour
         {
             timer = 0.01f;
             cooked = true;
+            foreach(ItemDropoff itemStation in collectionPoints)
+            {
+                itemStation.cook.Stop();
+            }
             fooddone.Play();
         }
         else if (!cooked)

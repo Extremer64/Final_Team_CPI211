@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDropoff : MonoBehaviour
+public class DeliveryStation : MonoBehaviour
 {
     public ItemHandler.ItemType itemType;
-    public AudioSource cook;
 
     public bool completed = false;
 
     private GameObject pickedUp;
+    private AudioSource cook;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class ItemDropoff : MonoBehaviour
 
     void Update()
     {
-        if(pickedUp != null)
+        if (pickedUp != null)
         {
             if (pickedUp.transform.parent != transform)
             {
@@ -46,11 +46,11 @@ public class ItemDropoff : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<ItemHandler>(out ItemHandler itemHandler))
+        if (other.TryGetComponent<ItemHandler>(out ItemHandler itemHandler))
         {
-            if(itemHandler.itemType == itemType)
+            if (itemHandler.itemType == itemType)
             {
-                if(pickedUp == null)
+                if (pickedUp == null)
                 {
                     pickedUp = other.gameObject;
                 }
