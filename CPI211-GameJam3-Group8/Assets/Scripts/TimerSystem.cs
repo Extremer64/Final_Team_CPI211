@@ -14,6 +14,7 @@ public class TimerSystem : MonoBehaviour
     private AudioSource[] music;
     private AudioSource background;
     private AudioSource lose;
+    private AudioSource win;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class TimerSystem : MonoBehaviour
         music = GetComponents<AudioSource>();
         background = music[0];
         lose = music[1];
+        win = music[2];
     }
 
     // Update is called once per frame
