@@ -26,12 +26,12 @@ public class CookingStation : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.E))
+        /*if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.E))
         {
             clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
             clones.Peek().transform.localScale = scale;
             clones.Peek().GetComponent<Collider>().isTrigger = false;
-        }
+        }*/
 
         int completed = 0;
         foreach (ItemDropoff itemStation in collectionPoints)
@@ -71,7 +71,7 @@ public class CookingStation : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.Equals(clones.Peek()))
+        if (other.gameObject.Equals(clones.Peek()) && cooked)
         {
             timer = spawnDelay;
         }

@@ -11,7 +11,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) || Input.GetMouseButton(0))
         {
-            if(grabable.Count != 0)
+            if(grabable.Count != 0 && pickedUp == null)
             {
                 pickedUp = grabable.Pop();
                 pickedUp.GetComponent<ItemHandler>().Default();

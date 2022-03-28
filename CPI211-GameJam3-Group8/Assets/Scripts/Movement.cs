@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
     private void MovePlayer(Vector3 targetV) {
         //var spd = moveS * Time.deltaTime;
         //transform.Translate(targetV * spd);
-        GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(transform.position, transform.position + targetV, moveS * Time.deltaTime));
+        GetComponent<Rigidbody>().MovePosition(transform.position + (targetV * moveS * Time.deltaTime));
     }
 
 

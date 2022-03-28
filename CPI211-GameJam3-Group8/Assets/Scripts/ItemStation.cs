@@ -20,12 +20,12 @@ public class ItemStation : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.E))
+        /*if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.E))
         {
             clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
             clones.Peek().transform.localScale = scale;
             clones.Peek().GetComponent<Collider>().isTrigger = false;
-        }
+        }*/
 
         if (timer > 0.0f)
         {
@@ -35,6 +35,7 @@ public class ItemStation : MonoBehaviour
         {
             clones.Push(Instantiate(clones.Peek(), transform.position, transform.rotation, transform));
             clones.Peek().transform.localScale = scale;
+            clones.Peek().GetComponent<Rigidbody>().isKinematic = false;
             clones.Peek().GetComponent<Collider>().isTrigger = false;
             timer = 0.0f;
         }
