@@ -9,6 +9,12 @@ public class ItemDropoff : MonoBehaviour
     public bool completed = false;
 
     private GameObject pickedUp;
+    private AudioSource cook;
+
+    private void Start()
+    {
+        cook = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -27,6 +33,7 @@ public class ItemDropoff : MonoBehaviour
                     pickedUp.GetComponent<Collider>().isTrigger = true;
                 }
                 pickedUp.transform.parent = transform;
+                cook.Play();
                 completed = true;
             }
             if (completed)
