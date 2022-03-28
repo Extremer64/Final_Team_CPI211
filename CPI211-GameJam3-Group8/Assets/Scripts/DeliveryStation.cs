@@ -9,11 +9,11 @@ public class DeliveryStation : MonoBehaviour
     public bool completed = false;
 
     private GameObject pickedUp;
-    private AudioSource cook;
+    //private AudioSource cook;
 
     private void Start()
     {
-        cook = GetComponent<AudioSource>();
+        //cook = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class DeliveryStation : MonoBehaviour
                     pickedUp.GetComponent<Collider>().isTrigger = true;
                 }
                 pickedUp.transform.parent = transform;
-                cook.Play();
+                //cook.Play();
                 completed = true;
             }
             if (completed)
