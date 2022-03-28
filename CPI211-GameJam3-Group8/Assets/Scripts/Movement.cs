@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private int collisionCount = 0;
     public float jumpDelay = 0.25f;
     private float jumpTracker = 0.0f;
+    private Vector3 respawnPos;
 
     [SerializeField]
     private float moveS;
@@ -18,6 +19,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         //_in = GetComponent<inputHandle>();
+        respawnPos = transform.position;
         source = GetComponent<AudioSource>();
         source.loop = true;
     }
@@ -54,6 +56,11 @@ public class Movement : MonoBehaviour
         {
             source.Pause();
             footsteps = false;
+        }
+
+        if(transform.position.y < -5)
+        {
+            transform.position = respawnPos;
         }
     }
 

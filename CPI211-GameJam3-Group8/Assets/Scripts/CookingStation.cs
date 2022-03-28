@@ -54,7 +54,7 @@ public class CookingStation : MonoBehaviour
         }
         else if (!cooked)
         {
-            clones.Peek().transform.position = Vector3.one * -10.0f;
+            clones.Peek().transform.position = Vector3.one * 100.0f;
         }
 
         if (timer > 0.0f)
