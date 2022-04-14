@@ -17,13 +17,20 @@ public class PointAndClick : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Ray ray = FindObjectOfType<Camera>().ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.CompareTag("Ground"))
+                switch (hit.transform.tag)
                 {
-                    travPoint.transform.position = hit.point;
-                    travPoint.SetActive();
+                    case "Ground":
+                        travPoint.transform.position = hit.point;
+                        travPoint.SetActive();
+                        break;
+                    case "Item":
+                        //item code
+                        break;
+                    default:
+                        break;
                 }
             }
         }

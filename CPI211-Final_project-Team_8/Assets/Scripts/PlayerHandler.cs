@@ -19,7 +19,10 @@ public class PlayerHandler : MonoBehaviour
     {
         if (isMoving)
         {
-            navMesh.SetDestination(travPoint.transform.position);
+            if (navMesh.velocity.magnitude.Equals(0.0f) || Input.GetMouseButton(0))
+            {
+                navMesh.SetDestination(travPoint.transform.position);
+            }
             if(Vector3.Distance(transform.position, travPoint.transform.position) < 1.0f)
             {
                 isMoving = false;
