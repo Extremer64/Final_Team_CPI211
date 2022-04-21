@@ -22,10 +22,8 @@ public class PointAndClick : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            Debug.Log("RAY CAST");
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("RAY HIT " + hit);
                 switch (hit.transform.tag)
                 {
                     case "Ground":
