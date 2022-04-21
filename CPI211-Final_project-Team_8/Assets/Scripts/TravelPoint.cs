@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TravelPoint : MonoBehaviour
 {
-    private bool isActive = false;
+    public Vector3 returnPos;
 
     public PlayerHandler player;
+
+    private bool isActive = false;
 
     void Start()
     {
@@ -27,6 +29,6 @@ public class TravelPoint : MonoBehaviour
     public void SetInactive()
     {
         isActive = false;
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = returnPos;
     }
 }

@@ -5,29 +5,34 @@ using UnityEngine.AI;
 
 public class PointAndClick : MonoBehaviour
 {
+    public Vector3 clickOffset;
+
+    private PlayerHandler player;
     private RaycastHit hit;
     private TravelPoint travPoint;
     
     void Start()
     {
         travPoint = FindObjectOfType<TravelPoint>();
+        player = FindObjectOfType<PlayerHandler>();
     }
 
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 switch (hit.transform.tag)
                 {
                     case "Ground":
-                        travPoint.transform.position = hit.point;
+                        travPoint.transform.position = hit.point + clickOffset;
                         travPoint.SetActive();
                         break;
                     case "Item":
-                        //item code
+                        travPoint.transform.position = hit.point + clickOffset;
+                        player.AddItem(hit.transform.gameObject.GetComponent<ItemHandler>());
                         break;
                     default:
                         break;
