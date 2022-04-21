@@ -7,12 +7,14 @@ public class PointAndClick : MonoBehaviour
 {
     public Vector3 clickOffset;
 
+    private PlayerHandler player;
     private RaycastHit hit;
     private TravelPoint travPoint;
     
     void Start()
     {
         travPoint = FindObjectOfType<TravelPoint>();
+        player = FindObjectOfType<PlayerHandler>();
     }
 
     void Update()
@@ -29,7 +31,8 @@ public class PointAndClick : MonoBehaviour
                         travPoint.SetActive();
                         break;
                     case "Item":
-                        //item code
+                        travPoint.transform.position = hit.point + clickOffset;
+                        player.AddItem(hit.transform.gameObject.GetComponent<ItemHandler>());
                         break;
                     default:
                         break;
