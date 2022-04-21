@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerHandler : MonoBehaviour
 {
+    public float deactivationRange = 2.5f;
+
     private bool isMoving = false;
 
     private NavMeshAgent navMesh;
@@ -23,10 +25,11 @@ public class PlayerHandler : MonoBehaviour
             {
                 navMesh.SetDestination(travPoint.transform.position);
             }
-            if(Vector3.Distance(transform.position, travPoint.transform.position) < 1.0f)
+            if(Vector3.Distance(transform.position, travPoint.transform.position) < deactivationRange || navMesh.pathStatus != NavMeshPathStatus.PathComplete)
             {
                 isMoving = false;
                 travPoint.SetInactive();
+                navMesh.SetDestination(transform.position);
             }
         }
     }
