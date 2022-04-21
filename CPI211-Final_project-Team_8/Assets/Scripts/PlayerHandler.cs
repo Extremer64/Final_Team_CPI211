@@ -10,6 +10,7 @@ public class PlayerHandler : MonoBehaviour
     private bool isMoving = false;
     private bool isGathering = false;
 
+    private Switchboard switchboard;
     private NavMeshAgent navMesh;
     private TravelPoint travPoint;
     private ItemHandler itemTarget;
@@ -17,6 +18,7 @@ public class PlayerHandler : MonoBehaviour
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
+        switchboard = FindObjectOfType<Switchboard>();
     }
 
     void Update()
@@ -45,6 +47,10 @@ public class PlayerHandler : MonoBehaviour
                 isGathering = false;
                 navMesh.SetDestination(transform.position);
                 Debug.Log("Item Picked Up: " + itemTarget.gameObject.name);
+                if(itemTarget.gameObject.name.Equals("Test Item"))
+                {
+                    switchboard.testItem = true;
+                }
                 itemTarget.transform.position = new Vector3(0, -10000, 0);
             }
         }

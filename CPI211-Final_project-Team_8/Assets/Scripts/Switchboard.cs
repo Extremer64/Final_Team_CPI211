@@ -6,7 +6,7 @@ using UnityEditor;
 public class Switchboard : MonoBehaviour
 {
     [Header("Objects")]
-    public GameObject player;
+    public PlayerHandler player;
     private AudioSource musicSource;
     private AudioSource[] audioSources;
     private ChangeByScare[] scareChangables;
@@ -15,6 +15,8 @@ public class Switchboard : MonoBehaviour
     public bool puzzleOne = false;
     public bool puzzleTwo = false;
     public bool puzzleThree = false;
+
+    public bool testItem = false;
 
     [Header("Variables")]
     [Range(0.0f, 1.0f)]
@@ -27,6 +29,7 @@ public class Switchboard : MonoBehaviour
     void Awake()
     {
         musicSource = GetComponent<AudioSource>();
+        player = FindObjectOfType<PlayerHandler>();
         audioSources = FindObjectsOfType<AudioSource>();
         scareChangables = FindObjectsOfType<ChangeByScare>();
     }
