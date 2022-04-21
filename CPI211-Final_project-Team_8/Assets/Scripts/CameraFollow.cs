@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         //Slowly moves to position after a key is pressed
-        transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed/2 * Time.deltaTime);
+        //transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed/2 * Time.deltaTime);
     }
 }
