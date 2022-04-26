@@ -46,10 +46,21 @@ public class PlayerHandler : MonoBehaviour
             {
                 isGathering = false;
                 navMesh.SetDestination(transform.position);
-                Debug.Log("Item Picked Up: " + itemTarget.gameObject.name);
-                if(itemTarget.gameObject.name.Equals("Test Item"))
+                if(itemTarget.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzle))
                 {
-                    switchboard.testItem = true;
+                    if (!switchboard.puzzlePieces[puzzle.puzzleIndex])
+                    {
+                        switchboard.puzzlePieces[puzzle.puzzleIndex] = true;
+                        switchboard.puzzlePiecesInv[puzzle.puzzleIndex] = puzzle;
+                    }
+                }
+                else if(itemTarget.TryGetComponent<Key>(out Key key))
+                {
+                    Debug.Log("LEVEL " + key.level + " KEY PICKED UP");
+                }
+                else
+                {
+                    Debug.LogError("No Item Found");
                 }
                 itemTarget.transform.position = new Vector3(0, -10000, 0);
             }

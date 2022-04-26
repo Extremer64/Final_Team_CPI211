@@ -7,6 +7,9 @@ public class Switchboard : MonoBehaviour
 {
     [Header("Objects")]
     public PlayerHandler player;
+
+    public PuzzlePiece[] puzzlePiecesInv = new PuzzlePiece[9];
+
     private AudioSource musicSource;
     private AudioSource[] audioSources;
     private ChangeByScare[] scareChangables;
@@ -17,6 +20,8 @@ public class Switchboard : MonoBehaviour
     public bool puzzleThree = false;
 
     public bool testItem = false;
+
+    public bool[] puzzlePieces = new bool[9];
 
     [Header("Variables")]
     [Range(0.0f, 1.0f)]
@@ -62,5 +67,17 @@ public class Switchboard : MonoBehaviour
         {
             audio.volume = newVolume;
         }
+    }
+
+    public bool CheckPuzzlePieces()
+    {
+        foreach(bool puz in puzzlePieces)
+        {
+            if (!puz)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
