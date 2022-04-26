@@ -3154,6 +3154,7 @@ GameObject:
   - component: {fileID: 294309967}
   - component: {fileID: 294309966}
   - component: {fileID: 294309964}
+  - component: {fileID: 294309965}
   m_Layer: 0
   m_Name: Key
   m_TagString: Item
@@ -3175,6 +3176,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   active: 0
+--- !u!65 &294309965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294309963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &294309966
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10487,6 +10501,10 @@ PrefabInstance:
       value: floorCornerRound (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 388ea213df516eb4083e7ed1ba705392, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 388ea213df516eb4083e7ed1ba705392, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -10914,6 +10932,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_Name
       value: floorFull (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11530,6 +11552,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_Name
       value: floorFull (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15833,6 +15859,10 @@ PrefabInstance:
       value: floorFull (39)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -17158,6 +17188,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_Name
       value: floorFull (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0857b9be5516d354f8b75efbd6a0838d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18989,6 +19023,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 388ea213df516eb4083e7ed1ba705392, type: 3}
       propertyPath: m_Name
       value: floorCornerRound (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 388ea213df516eb4083e7ed1ba705392, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 388ea213df516eb4083e7ed1ba705392, type: 3}
       propertyPath: m_StaticEditorFlags

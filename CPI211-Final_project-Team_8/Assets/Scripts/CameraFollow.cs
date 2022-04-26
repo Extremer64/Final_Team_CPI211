@@ -15,13 +15,18 @@ public class CameraFollow : MonoBehaviour
     {
         if (!focusing)
         {
+            if (!FindObjectOfType<DialogueRender>().dialogueShown)
+            {
+                Time.timeScale = 1.0f;
+            }
             transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed / 2 * Time.deltaTime);
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed / 2 * Time.deltaTime);
+            Time.timeScale = 0.0f;
+            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.unscaledDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime);
         }
     }
 

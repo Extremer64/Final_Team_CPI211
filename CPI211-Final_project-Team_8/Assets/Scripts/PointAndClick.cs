@@ -17,7 +17,7 @@ public class PointAndClick : MonoBehaviour
         player = FindObjectOfType<PlayerHandler>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
         {
