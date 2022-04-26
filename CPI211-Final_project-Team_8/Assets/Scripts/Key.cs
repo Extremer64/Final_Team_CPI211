@@ -18,7 +18,7 @@ public class Key : ItemHandler
     {
         switch (level)
         {
-            case 1:
+            case 0:
                 if (switchboard.CheckPuzzlePieces())
                 {
                     active = true;
@@ -28,9 +28,9 @@ public class Key : ItemHandler
                     active = false;
                 }
                 break;
-            case 2:
+            case 1:
                 break;
-            case 3:
+            case 2:
                 break;
         }
         if (active)

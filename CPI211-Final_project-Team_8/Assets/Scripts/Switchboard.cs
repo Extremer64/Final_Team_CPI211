@@ -15,9 +15,7 @@ public class Switchboard : MonoBehaviour
     private ChangeByScare[] scareChangables;
 
     [Header("Switches")]
-    public bool puzzleOne = false;
-    public bool puzzleTwo = false;
-    public bool puzzleThree = false;
+    public bool[] levelComplete = new bool[3];
 
     public bool testItem = false;
 

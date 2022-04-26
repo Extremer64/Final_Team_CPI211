@@ -56,7 +56,7 @@ public class PlayerHandler : MonoBehaviour
                 }
                 else if(itemTarget.TryGetComponent<Key>(out Key key))
                 {
-                    Debug.Log("LEVEL " + key.level + " KEY PICKED UP");
+                    switchboard.levelComplete[key.level] = true;
                 }
                 else
                 {
