@@ -30,17 +30,17 @@ public class PointAndClick : MonoBehaviour
                 delay = delayTime;
                 if (Physics.Raycast(GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hit))
                 {
-                    switch (hit.transform.tag)
+                    switch (GetType(hit.transform.gameObject))
                     {
-                        case "Ground":
-                            travPoint.transform.position = hit.point + clickOffset;
-                            travPoint.SetActive();
-                            break;
                         case "Item":
                             travPoint.transform.position = FindGround(hit).point + clickOffset;
                             player.AddItem(hit.transform.gameObject.GetComponent<ItemHandler>());
                             break;
                         case "NPC":
+                            travPoint.transform.position = FindGround(hit).point + clickOffset;
+                            player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
+                            break;
+                        case "Interactable":
                             travPoint.transform.position = FindGround(hit).point + clickOffset;
                             player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
                             break;
@@ -58,6 +58,22 @@ public class PointAndClick : MonoBehaviour
         }
     }
     
+    private string GetType(GameObject gameObject)
+    {
+        if (gameObject.TryGetComponent<NPC>(out NPC npc))
+        {
+            return "NPC";
+        }
+        if (gameObject.TryGetComponent<ItemHandler>(out ItemHandler itemHandler))
+        {
+            return "Item";
+        }
+        if(gameObject.TryGetComponent<Interactable>(out Interactable interactable))
+        {
+            return "Interactable";
+        }
+        return "default";
+    }
     private RaycastHit FindGround(RaycastHit raycastHit)
     {
         if (NavMesh.SamplePosition(hit.point + Vector3.forward, out NavMeshHit meshHit, 1000.0f, NavMesh.AllAreas))

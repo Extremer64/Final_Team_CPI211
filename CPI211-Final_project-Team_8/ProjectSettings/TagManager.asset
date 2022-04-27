@@ -4,11 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Item
   - Enemy
-  - Interractable
   - NPC
+  - Interactable
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class PlayerHandler : MonoBehaviour
     private bool isMoving = false;
     private bool isGathering = false;
     private bool isApproaching = false;
+    private bool isInteracting = false;
 
     private Switchboard switchboard;
     private NavMeshAgent navMesh;
@@ -17,6 +18,7 @@ public class PlayerHandler : MonoBehaviour
     private TravelPoint travPoint;
     private ItemHandler itemTarget;
     private NPC npcTarget;
+    private Interactable interactTarget;
 
     void Start()
     {
@@ -40,7 +42,7 @@ public class PlayerHandler : MonoBehaviour
                 navMesh.SetDestination(transform.position);
             }
         }
-        if (isGathering)
+        else if (isGathering)
         {
             if (navMesh.velocity.magnitude.Equals(0.0f) || Input.GetMouseButton(0))
             {
@@ -75,7 +77,7 @@ public class PlayerHandler : MonoBehaviour
                 travPoint.SetInactive();
             }
         }
-        if (isApproaching)
+        else if (isApproaching)
         {
             if (navMesh.velocity.magnitude.Equals(0.0f) || Input.GetMouseButton(0))
             {
@@ -105,6 +107,10 @@ public class PlayerHandler : MonoBehaviour
                 travPoint.SetInactive();
             }
         }
+        else if (isInteracting)
+        {
+
+        }
         DrawPath();
         Debug.DrawRay(navMesh.destination, Vector3.up * 5.0f, Color.green);
     }
@@ -112,19 +118,37 @@ public class PlayerHandler : MonoBehaviour
     public void AddPoint(TravelPoint newPoint)
     {
         travPoint = newPoint;
+        ChangeTarget();
         isMoving = true;
     }
 
     public void AddItem(ItemHandler newItem)
     {
         itemTarget = newItem;
+        ChangeTarget();
         isGathering = true;
     }
 
     public void AddNPC(NPC newNPC)
     {
         npcTarget = newNPC;
+        ChangeTarget();
         isApproaching = true;
+    }
+
+    public void AddInteract(Interactable newInteractable)
+    {
+        interactTarget = newInteractable;
+        ChangeTarget();
+        isInteracting = true;
+    }
+
+    private void ChangeTarget()
+    {
+        isMoving = false;
+        isGathering = false;
+        isApproaching = false;
+        isInteracting = false;
     }
 
     private void DrawPath()
