@@ -45,6 +45,8 @@ public class PointAndClick : MonoBehaviour
                             player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
                             break;
                         default:
+                            travPoint.transform.position = FindGround(hit).point + clickOffset;
+                            travPoint.SetActive();
                             break;
                     }
                 }
@@ -58,13 +60,6 @@ public class PointAndClick : MonoBehaviour
     
     private RaycastHit FindGround(RaycastHit raycastHit)
     {
-        if (Physics.Raycast(raycastHit.point, Vector3.down, out raycastHit))
-        {
-            if (!raycastHit.transform.CompareTag("Ground"))
-            {
-                FindGround(raycastHit);
-            }
-        }
         if (NavMesh.SamplePosition(hit.point + Vector3.forward, out NavMeshHit meshHit, 1000.0f, NavMesh.AllAreas))
         {
             raycastHit.point = meshHit.position;

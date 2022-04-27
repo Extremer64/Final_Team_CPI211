@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Highlightable : MonoBehaviour
 {
-    public Color color = Color.yellow;
+    public Color color = Color.green;
 
     private Color startColor;
     private Renderer render;
@@ -27,7 +27,6 @@ public class Highlightable : MonoBehaviour
     {
         if(Time.timeScale > 0.0f)
         {
-            Debug.Log(gameObject + ", " + color);
             startColor = render.material.color;
             render.material.color = color;
         }
