@@ -25,7 +25,7 @@ public class DialogueRender : MonoBehaviour
         textEditor = GetComponentInChildren<Text>();
         defaultText = textEditor.text;
         canvas = GetComponentsInChildren<Transform>()[1].gameObject;
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.loop = true;
     }
