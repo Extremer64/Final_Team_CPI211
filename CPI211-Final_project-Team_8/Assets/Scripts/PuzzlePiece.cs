@@ -5,6 +5,4 @@ using UnityEngine;
 public class PuzzlePiece : ItemHandler
 {
     public int puzzleIndex;
-
-
 }

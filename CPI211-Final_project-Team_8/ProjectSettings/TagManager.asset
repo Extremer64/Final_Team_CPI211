@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Tree
   - Item
   - Enemy
+  - Interractable
+  - NPC
   layers:
   - Default
   - TransparentFX

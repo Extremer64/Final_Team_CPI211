@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TravelPoint : MonoBehaviour
 {
-    public Vector3 returnPos;
+    public Vector3 returnPos = new Vector3(0, -200, 0);
 
     public PlayerHandler player;
 

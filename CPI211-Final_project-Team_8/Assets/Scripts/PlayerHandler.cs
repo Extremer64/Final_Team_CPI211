@@ -9,16 +9,20 @@ public class PlayerHandler : MonoBehaviour
 
     private bool isMoving = false;
     private bool isGathering = false;
+    private bool isApproaching = false;
 
     private Switchboard switchboard;
     private NavMeshAgent navMesh;
+    private NavMeshHit hit;
     private TravelPoint travPoint;
     private ItemHandler itemTarget;
+    private NPC npcTarget;
 
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
         switchboard = FindObjectOfType<Switchboard>();
+        travPoint = FindObjectOfType<TravelPoint>();
     }
 
     void Update()
@@ -29,7 +33,7 @@ public class PlayerHandler : MonoBehaviour
             {
                 navMesh.SetDestination(travPoint.transform.position);
             }
-            if(Vector3.Distance(transform.position, travPoint.transform.position) < deactivationRange || navMesh.pathStatus != NavMeshPathStatus.PathComplete)
+            if (Vector3.Distance(transform.position, travPoint.transform.position) < deactivationRange || navMesh.pathStatus != NavMeshPathStatus.PathComplete)
             {
                 isMoving = false;
                 travPoint.SetInactive();
@@ -42,11 +46,15 @@ public class PlayerHandler : MonoBehaviour
             {
                 navMesh.SetDestination(itemTarget.transform.position);
             }
-            if (Vector3.Distance(transform.position, itemTarget.transform.position) < deactivationRange || navMesh.pathStatus != NavMeshPathStatus.PathComplete)
+            if (navMesh.pathStatus != NavMeshPathStatus.PathComplete)
+            {
+                navMesh.SetDestination(transform.position);
+                travPoint.SetInactive();
+            }
+            else if (Vector3.Distance(transform.position, itemTarget.transform.position) < deactivationRange)
             {
                 isGathering = false;
-                navMesh.SetDestination(transform.position);
-                if(itemTarget.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzle))
+                if (itemTarget.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzle))
                 {
                     if (!switchboard.puzzlePieces[puzzle.puzzleIndex])
                     {
@@ -54,7 +62,7 @@ public class PlayerHandler : MonoBehaviour
                         switchboard.puzzlePiecesInv[puzzle.puzzleIndex] = puzzle;
                     }
                 }
-                else if(itemTarget.TryGetComponent<Key>(out Key key))
+                else if (itemTarget.TryGetComponent<Key>(out Key key))
                 {
                     switchboard.levelComplete[key.level] = true;
                 }
@@ -62,9 +70,40 @@ public class PlayerHandler : MonoBehaviour
                 {
                     Debug.LogError("No Item Found");
                 }
+                navMesh.SetDestination(transform.position);
                 itemTarget.transform.position = new Vector3(0, -10000, 0);
+                travPoint.SetInactive();
             }
         }
+        if (isApproaching)
+        {
+            if (navMesh.velocity.magnitude.Equals(0.0f) || Input.GetMouseButton(0))
+            {
+                if (NavMesh.SamplePosition(npcTarget.transform.position + npcTarget.transform.forward, out hit, 1000.0f, NavMesh.AllAreas))
+                {
+                    navMesh.SetDestination(hit.position);
+                }
+                else
+                {
+                    Debug.LogError("Point Not Found");
+                    isApproaching = false;
+                }
+            }
+            if (navMesh.pathStatus != NavMeshPathStatus.PathComplete)
+            {
+                isApproaching = false;
+                navMesh.SetDestination(transform.position);
+            }
+            else if (Vector3.Distance(transform.position, npcTarget.transform.position) < npcTarget.transform.localScale.magnitude/1.5)
+            {
+                isApproaching = false;
+                npcTarget.EnterDialogue();
+                navMesh.SetDestination(transform.position);
+                travPoint.SetInactive();
+            }
+        }
+        DrawPath();
+        Debug.DrawRay(navMesh.destination, Vector3.up * 5.0f, Color.green);
     }
 
     public void AddPoint(TravelPoint newPoint)
@@ -79,12 +118,19 @@ public class PlayerHandler : MonoBehaviour
         isGathering = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void AddNPC(NPC newNPC)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        npcTarget = newNPC;
+        isApproaching = true;
+    }
+
+    private void DrawPath()
+    {
+        var nav = GetComponent<NavMeshAgent>();
+        var path = nav.path;
+        for (int i = 0; i < path.corners.Length - 1; i++)
         {
-            Debug.Log("Item Picked Up: " + collision.gameObject.name);
-            Destroy(collision.gameObject);
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
         }
     }
 }

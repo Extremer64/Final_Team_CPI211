@@ -59,7 +59,6 @@ public class DialogueRender : MonoBehaviour
                 ShowText(defaultText);
             }
         }
-
     }
 
     public void ShowText(string text)
@@ -69,5 +68,13 @@ public class DialogueRender : MonoBehaviour
         textArray = text.ToCharArray();
         charPos = 0;
         dialogueShown = true;
+    }
+
+    public bool DialogueFinished()
+    {
+        if (textEditor.text == dialogueText) {
+            return true;
+        }
+        return false;
     }
 }
