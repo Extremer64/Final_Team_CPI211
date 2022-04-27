@@ -27,6 +27,7 @@ public class Highlightable : MonoBehaviour
     {
         if(Time.timeScale > 0.0f)
         {
+            Debug.Log(gameObject + ", " + color);
             startColor = render.material.color;
             render.material.color = color;
         }
