@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (!focusing)
         {
-            if (!FindObjectOfType<DialogueRender>().dialogueShown)
+            if (!FindObjectOfType<DialogueRender>().GetShown())
             {
                 Time.timeScale = 1.0f;
             }

@@ -68,7 +68,7 @@ public class PlayerHandler : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("No Item Found");
+                    Debug.LogError("Item Not Found");
                 }
                 navMesh.SetDestination(transform.position);
                 itemTarget.transform.position = new Vector3(0, -10000, 0);
@@ -97,7 +97,10 @@ public class PlayerHandler : MonoBehaviour
             else if (Vector3.Distance(transform.position, npcTarget.transform.position) < npcTarget.transform.localScale.magnitude/1.5)
             {
                 isApproaching = false;
-                npcTarget.EnterDialogue();
+                if (!npcTarget.GetTalking())
+                {
+                    npcTarget.EnterDialogue();
+                }
                 navMesh.SetDestination(transform.position);
                 travPoint.SetInactive();
             }
