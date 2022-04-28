@@ -12,6 +12,7 @@ public class PointAndClick : MonoBehaviour
     private PlayerHandler player;
     private RaycastHit hit;
     private TravelPoint travPoint;
+    private CameraFollow cameraFollow;
 
     private float delay;
     
@@ -19,6 +20,7 @@ public class PointAndClick : MonoBehaviour
     {
         travPoint = FindObjectOfType<TravelPoint>();
         player = FindObjectOfType<PlayerHandler>();
+        cameraFollow = GetComponent<CameraFollow>();
     }
 
     void FixedUpdate()
@@ -42,7 +44,7 @@ public class PointAndClick : MonoBehaviour
                             break;
                         case "Interactable":
                             travPoint.transform.position = FindGround(hit).point + clickOffset;
-                            player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
+                            player.AddInteract(hit.transform.gameObject.GetComponent<Interactable>());
                             break;
                         default:
                             travPoint.transform.position = FindGround(hit).point + clickOffset;
@@ -55,6 +57,10 @@ public class PointAndClick : MonoBehaviour
         else
         {
             delay -= Time.deltaTime;
+        }
+        if (Input.GetMouseButton(1))
+        {
+            cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width/2, 0, Input.mousePosition.y - Screen.height/2).normalized * 4.0f);
         }
     }
     

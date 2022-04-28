@@ -7,14 +7,19 @@ public class CameraFollow : MonoBehaviour
     public GameObject target;
     public float snapSpeed = 64.0f;
     public Vector3 offset = new Vector3(0.0f, 5.0f, -10.0f);
+    public float maxInfluenceDistance = 8.0f;
 
     private bool focusing;
     private GameObject focus;
     private Vector3 focusOffset;
+    private Vector3 defaultOffset;
 
-    private void Start()
+    private float snapTimer = 0.0f;
+
+    void Start()
     {
         target = FindObjectOfType<PlayerHandler>().gameObject;
+        defaultOffset = offset;
     }
 
     void Update()
@@ -31,8 +36,28 @@ public class CameraFollow : MonoBehaviour
         else
         {
             Time.timeScale = 0.0f;
-            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, snapSpeed * Time.unscaledDeltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime);
+            transform.position = Vector3.Lerp(transform.position, focus.transform.position + focusOffset, snapSpeed * Time.unscaledDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(focus.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime);
+        }
+        if(offset != defaultOffset && !Input.GetMouseButton(1))
+        {
+            if(snapTimer > 0.0f)
+            {
+                snapTimer -= Time.unscaledDeltaTime;
+            }
+            else
+            {
+                offset = Vector3.Lerp(offset, defaultOffset, Time.unscaledDeltaTime);
+            }
+        }
+    }
+
+    public void Influence(Vector3 influence)
+    {
+        if(Vector3.Distance(Vector3.Lerp(offset, offset + influence, Time.unscaledDeltaTime), defaultOffset) < maxInfluenceDistance)
+        {
+            offset = Vector3.Lerp(offset, defaultOffset + influence, Time.unscaledDeltaTime);
+            snapTimer = 0.1f;
         }
     }
 

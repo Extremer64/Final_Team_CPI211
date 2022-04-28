@@ -50,6 +50,7 @@ public class PlayerHandler : MonoBehaviour
             }
             if (navMesh.pathStatus != NavMeshPathStatus.PathComplete)
             {
+                Debug.LogError("Path Not Found");
                 navMesh.SetDestination(transform.position);
                 travPoint.SetInactive();
             }
@@ -70,7 +71,7 @@ public class PlayerHandler : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("Item Not Found");
+                    Debug.LogError("Item Type Not Found");
                 }
                 navMesh.SetDestination(transform.position);
                 itemTarget.transform.position = new Vector3(0, -10000, 0);
@@ -93,6 +94,7 @@ public class PlayerHandler : MonoBehaviour
             }
             if (navMesh.pathStatus != NavMeshPathStatus.PathComplete)
             {
+                Debug.LogError("Path Not Found");
                 isApproaching = false;
                 navMesh.SetDestination(transform.position);
             }
@@ -109,7 +111,31 @@ public class PlayerHandler : MonoBehaviour
         }
         else if (isInteracting)
         {
-
+            if (navMesh.velocity.magnitude.Equals(0.0f) || Input.GetMouseButton(0))
+            {
+                if (NavMesh.SamplePosition(interactTarget.transform.position + interactTarget.transform.forward, out hit, 1000.0f, NavMesh.AllAreas))
+                {
+                    navMesh.SetDestination(hit.position);
+                }
+                else
+                {
+                    Debug.LogError("Point Not Found");
+                    isInteracting = false;
+                }
+            }
+            if (navMesh.pathStatus != NavMeshPathStatus.PathComplete)
+            {
+                Debug.LogError("Path Not Found");
+                isInteracting = false;
+                navMesh.SetDestination(transform.position);
+            }
+            else if (Vector3.Distance(transform.position, interactTarget.transform.position) < deactivationRange * 2.0f)
+            {
+                isInteracting = false;
+                interactTarget.Interact();
+                navMesh.SetDestination(transform.position);
+                travPoint.SetInactive();
+            }
         }
         DrawPath();
         Debug.DrawRay(navMesh.destination, Vector3.up * 5.0f, Color.green);
