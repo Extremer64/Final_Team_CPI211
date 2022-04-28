@@ -1731,6 +1731,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -966.8403
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -542.4453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290566343683673543, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5239727927202405695, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_Name
       value: Level 1 UI
