@@ -98,7 +98,7 @@ public class PlayerHandler : MonoBehaviour
                 isApproaching = false;
                 navMesh.SetDestination(transform.position);
             }
-            else if (Vector3.Distance(transform.position, npcTarget.transform.position) < deactivationRange * 2.0f)
+            else if (Vector3.Distance(transform.position, npcTarget.transform.position) < deactivationRange * 2.5f)
             {
                 isApproaching = false;
                 if (!npcTarget.GetTalking())
