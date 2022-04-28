@@ -38,7 +38,7 @@ public class NotesControl : MonoBehaviour
             NotesControl.Puzzle = 0;
             NotesControl.updatenotes = true;
         }
-        else if (Puzzle == 0 && Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.P))
         {
             NotesControl.Puzzle += 1;
             NotesControl.updatenotes = true;
@@ -49,19 +49,19 @@ public class NotesControl : MonoBehaviour
         }
         else if(Puzzle == 1 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help?\nHe's always been there for me";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help\nHe's always been there for you";
         }
         else if (Puzzle == 2 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Puzzle Pieces?\nMaybe Completing the Puzzle will help\nThere seem to be a few lying around\nMaybe completing it will do something\nWhere is everyone?";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Puzzle Pieces...\nMaybe Completing the Puzzle will help\nThere seem to be a few lying around\nWhere is everyone";
         }
         else if (Puzzle == 3 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You are definitely dreaming\nThis puzzle just gave you a key\nAt leas this might be able to let you out of here";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You are definitely dreaming\nThis puzzle just gave you a key\nAt least this might be able to let you out of here";
         }
         else if (Puzzle == 4 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Again???\nSomething's different tho\nHopefully Big Ted will be useful like last time";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Again\nSomething's different tho\nHopefully Big Ted will be useful like last time";
         }
         else if (Puzzle == 5 && updatenotes)
         {
@@ -73,9 +73,20 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 7 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong\nIs this a graveyard";
         }
-
+        else if (Puzzle == 8 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "This place is much more dangerous than the last few\nYou need to get the right ingredients from those graves";
+        }
+        else if (Puzzle == 9 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "A KEY\nMaybe you can finally get out of here";
+        }
+        else if (Puzzle == 10 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Run";
+        }
 
         if (updatenotes == true)
         {
