@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAction : MonoBehaviour
+public class DoorPirateAction : Action
 {
-    // Start is called before the first frame update
+    private Keypad keypad;
+
     void Start()
     {
-        
+        keypad = FindObjectOfType<Keypad>();
+        actionTag = "DoorPirate";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void DoAction()
     {
-        
+        if (keypad.solved)
+        {
+            Debug.Log("SOLVED");
+        }
     }
 }
