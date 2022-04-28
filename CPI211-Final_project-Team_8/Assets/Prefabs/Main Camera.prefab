@@ -114,7 +114,6 @@ MonoBehaviour:
   snapSpeed: 8
   offset: {x: 0, y: 20, z: -15}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
 --- !u!1001 &2403118926366681319
 PrefabInstance:
@@ -335,6 +334,4 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes

@@ -33,8 +33,17 @@ public class NotesControl : MonoBehaviour
                 Notes.SetActive(false);
                 noteup = false;
             }
-
-        if(Puzzle == 0 && updatenotes)
+        if (Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
+        {
+            NotesControl.Puzzle = 0;
+            updatenotes = true;
+        }
+        else if (Puzzle != 1 && Input.GetKeyDown(KeyCode.P))
+        {
+            NotesControl.Puzzle = 1;
+            updatenotes = true;
+        }
+            if (Puzzle == 0 && updatenotes)
         {
             noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "TESTETTETETTETETETTETETTEVVFEVTFVYTFVYUTVEUVUEVFVTEUFVUEUYEVUYEF";
         }
@@ -43,15 +52,6 @@ public class NotesControl : MonoBehaviour
             noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around";
         }
 
-        if(Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
-        {
-            NotesControl.Puzzle = 0;
-            updatenotes = true;
-        }
-        else if(Puzzle != 1 && Input.GetKeyDown(KeyCode.P))
-        {
-            NotesControl.Puzzle = 1;
-            updatenotes = true;
         }
 
         if(updatenotes == true)
