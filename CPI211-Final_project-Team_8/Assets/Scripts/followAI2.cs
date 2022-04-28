@@ -13,7 +13,7 @@ public class followAI2 : MonoBehaviour
 
     void Start()
     {
-
+        Player = FindObjectOfType<PlayerHandler>().transform;
     }
 
     void Update()

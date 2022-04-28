@@ -5,6 +5,7 @@ using UnityEngine;
 public class followAI : MonoBehaviour
 {
     public Transform Player;
+    public GameObject p;
     int MoveSpeed = 4;
     int MinDist = 0;
 
@@ -13,7 +14,7 @@ public class followAI : MonoBehaviour
 
     void Start()
     {
-
+        Player = FindObjectOfType<PlayerHandler>().transform;
     }
 
     void Update()
