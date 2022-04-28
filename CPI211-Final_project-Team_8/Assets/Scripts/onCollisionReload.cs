@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class onCollisionReload : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision) {
-        //Debug.Log("Test Col");
+        Debug.Log("Test Col");
         if(collision.gameObject.tag == "Enemy") {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

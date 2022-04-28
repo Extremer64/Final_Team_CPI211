@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class followAI : MonoBehaviour
+public class followAI2 : MonoBehaviour
 {
     public Transform Player;
     int MoveSpeed = 4;
-    int MinDist = 0;
+    int MinDist = 10;
 
 
 
@@ -20,7 +20,7 @@ public class followAI : MonoBehaviour
     {
         transform.LookAt(Player);
 
-        if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+        if (Vector3.Distance(transform.position, Player.position) <= MinDist)
         {
 
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
