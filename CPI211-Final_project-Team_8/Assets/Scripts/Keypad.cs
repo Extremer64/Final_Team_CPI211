@@ -5,4 +5,8 @@ using UnityEngine;
 public class Keypad : Interactable
 {
     public GameObject[] displayAndButtons = new GameObject[10];
+    public override void Interact()
+    {
+
+    }
 }

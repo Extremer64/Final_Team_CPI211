@@ -52,8 +52,6 @@ public class NotesControl : MonoBehaviour
             noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around";
         }
 
-        }
-
         if(updatenotes == true)
         {
             updatenotes = false;

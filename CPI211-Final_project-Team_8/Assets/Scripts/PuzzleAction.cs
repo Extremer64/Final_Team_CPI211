@@ -6,6 +6,7 @@ public class PuzzleAction : Action
 {
     public PuzzlePiece piece;
     public Vector3 newPos;
+    
 
     private bool isActive = false;
 
