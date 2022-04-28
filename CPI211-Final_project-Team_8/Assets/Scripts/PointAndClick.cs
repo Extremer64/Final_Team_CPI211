@@ -60,8 +60,9 @@ public class PointAndClick : MonoBehaviour
         }
         if (Input.GetMouseButton(1))
         {
-            cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width/2, 0, Input.mousePosition.y - Screen.height/2).normalized * 4.0f);
+            cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width / 2, 0, Input.mousePosition.y - Screen.height / 2).normalized * -4.0f);
         }
+        cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width / 2, 0, Input.mousePosition.y - Screen.height / 2).normalized * -2.0f);
     }
     
     private string GetType(GameObject gameObject)

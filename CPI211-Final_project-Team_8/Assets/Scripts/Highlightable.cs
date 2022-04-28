@@ -6,35 +6,38 @@ public class Highlightable : MonoBehaviour
 {
     public Color color = Color.green;
 
-    private Color startColor;
+    private Color[] colors;
+    private Color[] startColors;
     private Renderer render;
 
     void Start()
     {
         render = GetComponent<Renderer>();
-        startColor = render.material.color;
-    }
-
-    void Update()
-    {
-        if (Time.timeScale == 0.0f)
+        startColors = new Color[render.materials.Length];
+        for (int i = 0; i < startColors.Length; i++)
         {
-            render.material.color = startColor;
+            startColors[i] = render.materials[i].color;
+        }
+        colors = new Color[render.materials.Length];
+        for (int i = 0; i < colors.Length; i++)
+        {
+            colors[i] = render.materials[i].color / 2 + color / 2;
         }
     }
 
     void OnMouseEnter()
     {
-        if(Time.timeScale > 0.0f)
+        for (int i = 0; i < startColors.Length; i++)
         {
-            startColor = render.material.color;
-            render.material.color = color;
+            render.materials[i].color += colors[i];
         }
-
     }
 
     void OnMouseExit()
     {
-        render.material.color = startColor;
+        for (int i = 0; i < render.materials.Length; i++)
+        {
+            render.materials[i].color = startColors[i];
+        }
     }
 }

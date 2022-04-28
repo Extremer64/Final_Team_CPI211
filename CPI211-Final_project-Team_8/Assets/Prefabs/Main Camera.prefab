@@ -115,6 +115,7 @@ MonoBehaviour:
   target: {fileID: 0}
   snapSpeed: 8
   offset: {x: 0, y: 20, z: -15}
+  maxInfluenceDistance: 8
 --- !u!1001 &2403118926366681319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,8 +216,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5818474690658242896, guid: 4c69ea6fca68a1541b24cf15d0104634, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1220
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818474690658242896, guid: 4c69ea6fca68a1541b24cf15d0104634, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 22.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5818474690658242896, guid: 4c69ea6fca68a1541b24cf15d0104634, type: 3}
       propertyPath: m_AnchoredPosition.y
