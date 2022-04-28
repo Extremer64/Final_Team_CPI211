@@ -9,7 +9,7 @@ public class NotesControl : MonoBehaviour
     public GameObject UpdateMessage;
     [SerializeField] public static int Puzzle;
     public bool noteup = false;
-    public bool updatenotes = false;
+    public static bool updatenotes = false;
 
     public bool Notemessage = false;
     public float Timer;
@@ -36,23 +36,48 @@ public class NotesControl : MonoBehaviour
         if (Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
         {
             NotesControl.Puzzle = 0;
-            updatenotes = true;
+            NotesControl.updatenotes = true;
         }
-        else if (Puzzle != 1 && Input.GetKeyDown(KeyCode.P))
+        else if (Puzzle == 0 && Input.GetKeyDown(KeyCode.P))
         {
-            NotesControl.Puzzle = 1;
-            updatenotes = true;
+            NotesControl.Puzzle += 1;
+            NotesControl.updatenotes = true;
         }
-            if (Puzzle == 0 && updatenotes)
+        if (Puzzle == 0 && updatenotes)
         {
             noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "TESTETTETETTETETETTETETTEVVFEVTFVYTFVYUTVEUVUEVFVTEUFVUEUYEVUYEF";
         }
         else if(Puzzle == 1 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help?\nHe's always been there for me";
+        }
+        else if (Puzzle == 2 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Puzzle Pieces?\nMaybe Completing the Puzzle will help\nThere seem to be a few lying around\nMaybe completing it will do something\nWhere is everyone?";
+        }
+        else if (Puzzle == 3 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You are definitely dreaming\nThis puzzle just gave you a key\nAt leas this might be able to let you out of here";
+        }
+        else if (Puzzle == 4 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Again???\nSomething's different tho\nHopefully Big Ted will be useful like last time";
+        }
+        else if (Puzzle == 5 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "A Code huh?\nYou should Probably look around for more hints\nHints:";
+        }
+        else if (Puzzle == 6 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You made it through that door\nNow something is VERY wrong here\n....Is that....an Accordian??";
+        }
+        else if (Puzzle == 7 && updatenotes)
+        {
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong";
         }
 
-        if(updatenotes == true)
+
+        if (updatenotes == true)
         {
             updatenotes = false;
             Notemessage = true;
