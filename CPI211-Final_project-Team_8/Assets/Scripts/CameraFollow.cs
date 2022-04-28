@@ -11,6 +11,12 @@ public class CameraFollow : MonoBehaviour
     private bool focusing;
     private GameObject focus;
     private Vector3 focusOffset;
+
+    private void Start()
+    {
+        target = FindObjectOfType<PlayerHandler>().gameObject;
+    }
+
     void Update()
     {
         if (!focusing)
