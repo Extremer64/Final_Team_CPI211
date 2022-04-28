@@ -15,7 +15,6 @@ public class CameraFollow : MonoBehaviour
     private Vector3 focusOffset;
     private Vector3 defaultOffset;
 
-    private float objectAvoidTimer = 0.0f;
     private float snapTimer = 0.0f;
 
     void Start()
@@ -32,31 +31,14 @@ public class CameraFollow : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
             }
-            transform.position = (Vector3.Lerp(transform.position, target.transform.position + offset, Time.deltaTime));
-            transform.rotation = (Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed / 2 * Time.deltaTime));
-            if(Physics.Raycast(GetComponent<Camera>().ScreenPointToRay(GetComponent<Camera>().WorldToScreenPoint(target.transform.position)), out RaycastHit hit))
-            {
-                if (hit.transform.gameObject != target.transform.gameObject)
-                {
-                    offset = Vector3.Lerp(offset, new Vector3(target.transform.position.x, offset.y, target.transform.position.z), Time.deltaTime);
-                    transform.position = (Vector3.Lerp(transform.position, target.transform.position + offset, Time.deltaTime * 2.0f));
-                    objectAvoidTimer = 0.0f;
-                }
-                else if (objectAvoidTimer > 1.0f)
-                {
-                    offset = Vector3.Lerp(offset, defaultOffset, Time.deltaTime);
-                }
-                else
-                {
-                    objectAvoidTimer += Time.deltaTime;
-                }
-            }
+            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, Time.deltaTime * snapSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), snapSpeed / 2 * Time.deltaTime);
         }
         else
         {
             Time.timeScale = 0.0f;
-            transform.position = (Vector3.Lerp(transform.position, focus.transform.position + focusOffset, snapSpeed * Time.unscaledDeltaTime));
-            transform.rotation = (Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(focus.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime));
+            transform.position = Vector3.Lerp(transform.position, focus.transform.position + focusOffset, snapSpeed * Time.unscaledDeltaTime * snapSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(focus.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime * snapSpeed);
         }
         if(offset != defaultOffset)
         {
