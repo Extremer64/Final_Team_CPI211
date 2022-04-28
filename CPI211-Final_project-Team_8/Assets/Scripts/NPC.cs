@@ -19,10 +19,6 @@ public class NPC : MonoBehaviour
     {
         dialogue = GetComponent<Dialogue>();
         render = FindObjectOfType<DialogueRender>();
-        if(!TryGetComponent<Highlightable>(out Highlightable highlightable))
-        {
-            gameObject.AddComponent<Highlightable>();
-        }
     }
 
     void FixedUpdate()

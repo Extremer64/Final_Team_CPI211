@@ -35,6 +35,27 @@ public class Switchboard : MonoBehaviour
         player = FindObjectOfType<PlayerHandler>();
         audioSources = FindObjectsOfType<AudioSource>();
         scareChangables = FindObjectsOfType<ChangeByScare>();
+        foreach(Interactable obj in FindObjectsOfType<Interactable>())
+        {
+            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            {
+                gameObject.AddComponent<Highlightable>();
+            }
+        }
+        foreach (NPC obj in FindObjectsOfType<NPC>())
+        {
+            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            {
+                gameObject.AddComponent<Highlightable>();
+            }
+        }
+        foreach (ItemHandler obj in FindObjectsOfType<ItemHandler>())
+        {
+            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            {
+                gameObject.AddComponent<Highlightable>();
+            }
+        }
     }
 
     void Update()
