@@ -39,21 +39,21 @@ public class Switchboard : MonoBehaviour
         {
             if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
-                gameObject.AddComponent<Highlightable>();
+                obj.gameObject.AddComponent<Highlightable>();
             }
         }
         foreach (NPC obj in FindObjectsOfType<NPC>())
         {
             if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
-                gameObject.AddComponent<Highlightable>();
+                obj.gameObject.AddComponent<Highlightable>();
             }
         }
         foreach (ItemHandler obj in FindObjectsOfType<ItemHandler>())
         {
             if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
-                gameObject.AddComponent<Highlightable>();
+                obj.gameObject.AddComponent<Highlightable>();
             }
         }
     }
