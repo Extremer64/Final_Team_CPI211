@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Grave : Interactable
 {
-    public bool dug = false;
     public bool isSkeleton = false;
+    public int altarPiece = 0;
 
+    private bool dug = false;
     private float digTime = 1.0f;
     private float digTimer = 0.0f;
 
     private CameraFollow cameraFollow;
+    private Switchboard switchboard;
 
     void Start()
     {
         interactTag = "Grave";
         cameraFollow = FindObjectOfType<CameraFollow>();
+        switchboard = FindObjectOfType<Switchboard>();
     }
 
     void Update()
@@ -36,6 +39,8 @@ public class Grave : Interactable
                 DontSkeleton();
             }
             digTimer = 0.0f;
+            Destroy(GetComponent<Highlightable>());
+            GetComponent<Collider>().enabled = true;
         }
     }
 
@@ -44,6 +49,7 @@ public class Grave : Interactable
         if (!dug)
         {
             dug = true;
+            GetComponent<Collider>().enabled = false;
             digTimer = digTime;
             cameraFollow.Focus(gameObject, Vector3.up * 12.0f);
         }
@@ -60,11 +66,6 @@ public class Grave : Interactable
 
     private void DontSkeleton()
     {
-        Debug.Log("Don't Skeleton");
-        /*---------------------------------------------------------------------------
-         *                LINK TO A SCRIPT TO *DON'T* SPAWN SKELETON
-         *               or just leave blank and it'll just sit there
-         *                                   - SCOUT
-         *-------------------------------------------------------------------------*/
+        switchboard.ritualPieces[altarPiece] = true;
     }
 }

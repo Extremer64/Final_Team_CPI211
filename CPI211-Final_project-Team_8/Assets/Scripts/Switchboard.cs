@@ -10,7 +10,6 @@ public class Switchboard : MonoBehaviour
 
     public PuzzlePiece[] puzzlePiecesInv = new PuzzlePiece[9];
 
-    private AudioSource musicSource;
     private AudioSource[] audioSources;
     private ChangeByScare[] scareChangables;
 
@@ -20,6 +19,8 @@ public class Switchboard : MonoBehaviour
     public bool testItem = false;
 
     public bool[] puzzlePieces = new bool[9];
+
+    public bool[] ritualPieces = new bool[3];
 
     [Header("Variables")]
     [Range(0.0f, 1.0f)]
@@ -31,7 +32,6 @@ public class Switchboard : MonoBehaviour
 
     void Awake()
     {
-        musicSource = GetComponent<AudioSource>();
         player = FindObjectOfType<PlayerHandler>();
         audioSources = FindObjectsOfType<AudioSource>();
         scareChangables = FindObjectsOfType<ChangeByScare>();
@@ -98,5 +98,22 @@ public class Switchboard : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public bool CheckRitualPieces()
+    {
+        foreach (bool rit in ritualPieces)
+        {
+            if (!rit)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool CheckKey(int level)
+    {
+        return levelComplete[level];
     }
 }
