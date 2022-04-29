@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorPirateAction : Action
 {
@@ -16,7 +17,7 @@ public class DoorPirateAction : Action
     {
         if (keypad.solved)
         {
-            Debug.Log("SOLVED");
+            SceneManager.LoadScene(3);
         }
     }
 }
