@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13034564, g: 0.09485038, b: 0.12500933, a: 1}
+  m_IndirectSpecularColor: {r: 0.13034657, g: 0.094851784, b: 0.12500986, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17598,8 +17598,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -411.92255, y: 221.87167}
-  m_SizeDelta: {x: -823.845, y: -443.7433}
+  m_AnchoredPosition: {x: -503.98962, y: 278.76297}
+  m_SizeDelta: {x: -1007.9791, y: -557.5259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695363105
 MonoBehaviour:
@@ -43388,6 +43388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6441ebe39ff1cb9498cbc0c4534494bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PuzzleUI: {fileID: 695363103}
+  PuzzleNumber: {fileID: 126968742}
 --- !u!1 &1616658825
 GameObject:
   m_ObjectHideFlags: 0

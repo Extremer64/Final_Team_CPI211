@@ -137,6 +137,31 @@ public class Switchboard : MonoBehaviour
         return true;
     }
 
+    public bool CheckOneRitualPiece()
+    {
+        for (int i = 0; i < ritualPieces.Length; i++)
+        {
+            if (ritualPieces[i])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int CountRitualPieces(bool[] ritualPieces, bool flag)
+    {
+        int count = 0;
+        for (int i = 0; i < ritualPieces.Length; i++)
+        {
+            if (ritualPieces[i] == flag)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public bool CheckKey(int level)
     {
         return levelComplete[level];
