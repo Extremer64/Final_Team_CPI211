@@ -9,7 +9,7 @@ public class NotesControl : MonoBehaviour
     public GameObject UpdateMessage;
     [SerializeField] public static int Puzzle;
     public static int LastPuzzle;
-    public bool noteup = false;
+    public bool noteup = true;
     public static bool updatenotes = false;
 
     public bool Notemessage = false;
