@@ -5,6 +5,7 @@ using UnityEngine;
 public class Level2UI : MonoBehaviour
 {
 
+    public GameObject PuzzleUI;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class Level2UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(NotesControl.Puzzle == 5)
+        {
+            PuzzleUI.SetActive(true);
+        }
     }
 }

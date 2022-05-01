@@ -27,6 +27,7 @@ public class Keypad : Interactable
     {
         if (isInterracting && !solved)
         {
+            NotesControl.Puzzle = 5;
             if (delay < 2.5f)
             {
                 delay += Time.unscaledDeltaTime;
