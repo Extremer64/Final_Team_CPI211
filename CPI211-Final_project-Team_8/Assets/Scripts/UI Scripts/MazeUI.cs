@@ -10,7 +10,6 @@ public class MazeUI : MonoBehaviour
     void Start()
     {
         NotesControl.Puzzle = 6;
-        NotesControl.updatenotes = true;
     }
 
     // Update is called once per frame

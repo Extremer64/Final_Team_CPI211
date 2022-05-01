@@ -10,7 +10,6 @@ public class Level2UI : MonoBehaviour
     void Start()
     {
         NotesControl.Puzzle = 4;
-        NotesControl.updatenotes = true;
     }
 
     // Update is called once per frame

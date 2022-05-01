@@ -8,6 +8,7 @@ public class NotesControl : MonoBehaviour
     public GameObject noteContent;
     public GameObject UpdateMessage;
     [SerializeField] public static int Puzzle;
+    public static int LastPuzzle;
     public bool noteup = false;
     public static bool updatenotes = false;
 
@@ -36,13 +37,18 @@ public class NotesControl : MonoBehaviour
         if (Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
         {
             NotesControl.Puzzle = 0;
-            NotesControl.updatenotes = true;
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
             NotesControl.Puzzle += 1;
-            NotesControl.updatenotes = true;
         }
+
+        if (LastPuzzle != Puzzle)
+        {
+            updatenotes = true;
+            LastPuzzle = Puzzle;
+        }
+
         if (Puzzle == 0 && updatenotes)
         {
             noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "TESTETTETETTETETETTETETTEVVFEVTFVYTFVYUTVEUVUEVFVTEUFVUEUYEVUYEF";
@@ -57,15 +63,15 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 3 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You are definitely dreaming\nThis puzzle just gave you a key\nAt least this might be able to let you out of here";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Well thats all the pieces...\nMaybe Completing the puzzle will do something";
         }
         else if (Puzzle == 4 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Again\nSomething's different tho\nHopefully Big Ted will be useful like last time";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up again....\nSomething's different tho\nHopefully Big Ted will be useful like last time";
         }
         else if (Puzzle == 5 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "A Code huh?\nYou should Probably look around for more hints\nHints:";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You don't remember a keypad being here\nOh well, you should Probably look around for more hints";
         }
         else if (Puzzle == 6 && updatenotes)
         {

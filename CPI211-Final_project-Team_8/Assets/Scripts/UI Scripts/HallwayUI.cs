@@ -10,7 +10,6 @@ public class HallwayUI : MonoBehaviour
     void Start()
     {
         NotesControl.Puzzle = 10;
-        NotesControl.updatenotes = true;
     }
 
     // Update is called once per frame
