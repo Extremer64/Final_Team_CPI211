@@ -14,6 +14,8 @@ public class Grave : Interactable
     private CameraFollow cameraFollow;
     private Switchboard switchboard;
 
+    public GameObject skel;
+
     void Start()
     {
         interactTag = "Grave";
@@ -58,14 +60,13 @@ public class Grave : Interactable
     private void DoSkeleton()
     {
         Debug.Log("Do Skeleton");
-        /*---------------------------------------------------------------------------
-         *                     LINK TO A SCRIPT TO SPAWN SKELETON
-         *                                   - SCOUT
-         *-------------------------------------------------------------------------*/
+        Instantiate(skel, new Vector3(51,0.4f,25), Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void DontSkeleton()
     {
         switchboard.ritualPieces[altarPiece] = true;
+        Destroy(gameObject);
     }
 }
