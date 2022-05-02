@@ -20,11 +20,16 @@ public class PlayerHandler : MonoBehaviour
     private NPC npcTarget;
     private Interactable interactTarget;
 
+    private AudioSource source;
+    private bool footsteps = false;
+
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
         switchboard = FindObjectOfType<Switchboard>();
         travPoint = FindObjectOfType<TravelPoint>();
+        source = GetComponent<AudioSource>();
+        source.loop = true;
     }
 
     void Update()
@@ -139,6 +144,18 @@ public class PlayerHandler : MonoBehaviour
         }
         DrawPath();
         Debug.DrawRay(navMesh.destination, Vector3.up * 5.0f, Color.green);
+
+        if(!footsteps && isMoving)
+        {
+            source.Play();
+            footsteps = true;
+        }
+
+        if(footsteps && !isMoving)
+        {
+            source.Pause();
+            footsteps = false;
+        }
     }
 
     public void AddPoint(TravelPoint newPoint)
