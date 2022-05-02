@@ -20,7 +20,8 @@ public class PlayerHandler : MonoBehaviour
     private NPC npcTarget;
     private Interactable interactTarget;
 
-    private AudioSource source;
+    private AudioSource[] source;
+    private AudioSource Walking;
     private bool footsteps = false;
 
     void Start()
@@ -28,8 +29,9 @@ public class PlayerHandler : MonoBehaviour
         navMesh = GetComponent<NavMeshAgent>();
         switchboard = FindObjectOfType<Switchboard>();
         travPoint = FindObjectOfType<TravelPoint>();
-        source = GetComponent<AudioSource>();
-        source.loop = true;
+        source = GetComponents<AudioSource>();
+        Walking = source[0];
+        Walking.loop = true;
     }
 
     void Update()
@@ -147,13 +149,13 @@ public class PlayerHandler : MonoBehaviour
 
         if(!footsteps && isMoving)
         {
-            source.Play();
+            Walking.Play();
             footsteps = true;
         }
 
         if(footsteps && !isMoving)
         {
-            source.Pause();
+            Walking.Pause();
             footsteps = false;
         }
     }
