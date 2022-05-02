@@ -55,7 +55,7 @@ public class NotesControl : MonoBehaviour
         }
         else if(Puzzle == 1 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help\nHe's always been there for you";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help\nHe's always been there for me";
         }
         else if (Puzzle == 2 && updatenotes)
         {
@@ -71,15 +71,15 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 5 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You don't remember a keypad being here\nOh well, you should Probably look around for more hints";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I don't remember a keypad being here\nOh well, I should Probably look around for more hints";
         }
         else if (Puzzle == 6 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "You made it through that door\nNow something is VERY wrong here\n....Is that....an Accordian??";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I made it through that door\nNow something is VERY wrong here\n....Is that....a Parrot??\nI guess this is a pirate ship...";
         }
         else if (Puzzle == 7 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong\nIs this a graveyard";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong\nIs this a graveyard??";
         }
         else if (Puzzle == 8 && updatenotes)
         {
@@ -87,11 +87,11 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 9 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "FINALLY you have all of them\nMaybe you can finally get out of here";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "FINALLY I have all of them\nMaybe I can finally get out of here";
         }
         else if (Puzzle == 10 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Run";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I need to get out of here";
         }
 
         if (updatenotes == true)
