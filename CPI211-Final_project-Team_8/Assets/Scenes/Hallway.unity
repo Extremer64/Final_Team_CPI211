@@ -6823,7 +6823,7 @@ GameObject:
   - component: {fileID: 384508157}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -6839,7 +6839,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.78
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &384508158
 MeshRenderer:

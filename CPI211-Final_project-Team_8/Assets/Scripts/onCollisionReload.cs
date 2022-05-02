@@ -9,6 +9,9 @@ public class onCollisionReload : MonoBehaviour
         Debug.Log("Test Col");
         if(collision.gameObject.tag == "Enemy") {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        } else if(collision.gameObject.tag == "Sphere")
+        {
+            SceneManager.LoadScene("EndGame");
         }
     }
 }
