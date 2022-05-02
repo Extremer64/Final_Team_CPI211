@@ -3612,7 +3612,7 @@ MeshCollider:
   m_GameObject: {fileID: 104885475}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -12385,7 +12385,7 @@ MeshCollider:
   m_GameObject: {fileID: 438147416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -19283,7 +19283,7 @@ MeshCollider:
   m_GameObject: {fileID: 733110421}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -25031,7 +25031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 376cfbfe85df8b647b277633213e3c0a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.253561
+      value: -6.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 376cfbfe85df8b647b277633213e3c0a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48693,8 +48693,12 @@ PrefabInstance:
       value: 112
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124a7f3c161701c44b9e46d813541227, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 124a7f3c161701c44b9e46d813541227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.452349
+      value: -24.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124a7f3c161701c44b9e46d813541227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -48702,7 +48706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124a7f3c161701c44b9e46d813541227, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.289161
+      value: -11.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124a7f3c161701c44b9e46d813541227, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48760,7 +48764,7 @@ MeshCollider:
   m_GameObject: {fileID: 1856836241}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -55889,7 +55893,7 @@ MeshCollider:
   m_GameObject: {fileID: 2098913514}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
