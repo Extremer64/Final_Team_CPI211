@@ -5186,7 +5186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueIndex: 0
-  audioClip: {fileID: 8300000, guid: a7fcfa19c4110ff49a020ac39fd18afb, type: 3}
+  audioClip: {fileID: 8300000, guid: dc0ae841cefe25c4485d7036118137e2, type: 3}
 --- !u!114 &386859195
 MonoBehaviour:
   m_ObjectHideFlags: 0
