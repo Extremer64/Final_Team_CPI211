@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 760482460086233252}
   - component: {fileID: 760482460086233251}
   - component: {fileID: 760482460086233240}
+  - component: {fileID: 732541148218631385}
   m_Layer: 0
   m_Name: MazeEnemy
   m_TagString: Enemy
@@ -66,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  p: {fileID: 0}
 --- !u!114 &760482460086233240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +81,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+--- !u!54 &732541148218631385
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453930168517907946}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
 --- !u!1 &4004662284209603449
 GameObject:
   m_ObjectHideFlags: 0
