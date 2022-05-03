@@ -22,7 +22,7 @@ public class PlayerHandler : MonoBehaviour
 
     private AudioSource[] source;
     private AudioSource Walking;
-    private bool footsteps = false;
+    private AudioSource success;
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class PlayerHandler : MonoBehaviour
         source = GetComponents<AudioSource>();
         Walking = source[0];
         Walking.loop = true;
+        success = source[2];
     }
 
     void Update()
@@ -61,9 +62,10 @@ public class PlayerHandler : MonoBehaviour
                 navMesh.SetDestination(transform.position);
                 travPoint.SetInactive();
             }
-            else if (Vector3.Distance(transform.position, itemTarget.transform.position) < deactivationRange)
+            else if (Vector3.Distance(transform.position, itemTarget.transform.position) < deactivationRange * 2.5f)
             {
                 isGathering = false;
+                success.Play();
                 if (itemTarget.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzle))
                 {
                     if (!switchboard.puzzlePieces[puzzle.puzzleIndex])
@@ -136,7 +138,7 @@ public class PlayerHandler : MonoBehaviour
                 isInteracting = false;
                 navMesh.SetDestination(transform.position);
             }
-            else if (Vector3.Distance(transform.position, interactTarget.transform.position) < deactivationRange * 2.0f)
+            else if (Vector3.Distance(transform.position, interactTarget.transform.position) < deactivationRange * 3.0f)
             {
                 isInteracting = false;
                 interactTarget.Interact();
@@ -147,16 +149,16 @@ public class PlayerHandler : MonoBehaviour
         DrawPath();
         Debug.DrawRay(navMesh.destination, Vector3.up * 5.0f, Color.green);
 
-        if(!footsteps && isMoving)
+        if(isMoving || isGathering || isInteracting || isApproaching)
         {
-            Walking.Play();
-            footsteps = true;
+            if (!Walking.isPlaying)
+            {
+                Walking.Play();
+            }
         }
-
-        if(footsteps && !isMoving)
+        else
         {
             Walking.Pause();
-            footsteps = false;
         }
     }
 

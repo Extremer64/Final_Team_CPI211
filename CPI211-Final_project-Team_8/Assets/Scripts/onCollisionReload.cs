@@ -16,7 +16,6 @@ public class onCollisionReload : MonoBehaviour
         Death.loop = false;
     }
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log("Test Col");
         if(collision.gameObject.tag == "Enemy") 
         {
             Death.Play();

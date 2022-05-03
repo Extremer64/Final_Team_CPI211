@@ -16,23 +16,6 @@ public class Key : ItemHandler
 
     void Update()
     {
-        switch (level)
-        {
-            case 0:
-                if (switchboard.CheckPuzzlePieces())
-                {
-                    active = true;
-                }
-                else
-                {
-                    active = false;
-                }
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-        }
         if (active)
         {
             GetComponent<Renderer>().enabled = true;

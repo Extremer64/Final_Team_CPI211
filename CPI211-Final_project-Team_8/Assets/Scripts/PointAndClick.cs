@@ -14,6 +14,7 @@ public class PointAndClick : MonoBehaviour
     private TravelPoint travPoint;
     private CameraFollow cameraFollow;
 
+    private bool isPaused = false;
     private float delay;
     
     void Start()
@@ -25,40 +26,43 @@ public class PointAndClick : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(delay < 0.0f)
+        if (!isPaused)
         {
-            if (Input.GetMouseButton(0))
+            if (delay < 0.0f)
             {
-                delay = delayTime;
-                if (Physics.Raycast(GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hit))
+                if (Input.GetMouseButton(0))
                 {
-                    switch (GetType(hit.transform.gameObject))
+                    delay = delayTime;
+                    if (Physics.Raycast(GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hit))
                     {
-                        case "Item":
-                            travPoint.transform.position = FindGround(hit).point + clickOffset;
-                            player.AddItem(hit.transform.gameObject.GetComponent<ItemHandler>());
-                            break;
-                        case "NPC":
-                            travPoint.transform.position = FindGround(hit).point + clickOffset;
-                            player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
-                            break;
-                        case "Interactable":
-                            travPoint.transform.position = FindGround(hit).point + clickOffset;
-                            player.AddInteract(hit.transform.gameObject.GetComponent<Interactable>());
-                            break;
-                        default:
-                            travPoint.transform.position = FindGround(hit).point + clickOffset;
-                            travPoint.SetActive();
-                            break;
+                        switch (GetType(hit.transform.gameObject))
+                        {
+                            case "Item":
+                                travPoint.transform.position = FindGround(hit).point + clickOffset;
+                                player.AddItem(hit.transform.gameObject.GetComponent<ItemHandler>());
+                                break;
+                            case "NPC":
+                                travPoint.transform.position = FindGround(hit).point + clickOffset;
+                                player.AddNPC(hit.transform.gameObject.GetComponent<NPC>());
+                                break;
+                            case "Interactable":
+                                travPoint.transform.position = FindGround(hit).point + clickOffset;
+                                player.AddInteract(hit.transform.gameObject.GetComponent<Interactable>());
+                                break;
+                            default:
+                                travPoint.transform.position = FindGround(hit).point + clickOffset;
+                                travPoint.SetActive();
+                                break;
+                        }
                     }
                 }
             }
+            else
+            {
+                delay -= Time.deltaTime;
+            }
+            cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width / 2, (Input.mousePosition.y - Screen.height / 2), (Input.mousePosition.y - Screen.height) / 2).normalized * -1.0f);
         }
-        else
-        {
-            delay -= Time.deltaTime;
-        }
-        cameraFollow.Influence(new Vector3(Input.mousePosition.x - Screen.width / 2, (Input.mousePosition.y - Screen.height / 2), (Input.mousePosition.y - Screen.height) / 2).normalized * -1.0f);
     }
     
     private string GetType(GameObject gameObject)
@@ -84,5 +88,10 @@ public class PointAndClick : MonoBehaviour
             raycastHit.point = meshHit.position;
         }
         return raycastHit;
+    }
+
+    public void SetPause(bool set)
+    {
+        isPaused = set;
     }
 }

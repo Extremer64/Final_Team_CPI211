@@ -37,21 +37,21 @@ public class Switchboard : MonoBehaviour
         scareChangables = FindObjectsOfType<ChangeByScare>();
         foreach(Interactable obj in FindObjectsOfType<Interactable>())
         {
-            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            if (!obj.TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
                 obj.gameObject.AddComponent<Highlightable>();
             }
         }
         foreach (NPC obj in FindObjectsOfType<NPC>())
         {
-            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            if (!obj.TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
                 obj.gameObject.AddComponent<Highlightable>();
             }
         }
         foreach (ItemHandler obj in FindObjectsOfType<ItemHandler>())
         {
-            if (!TryGetComponent<Highlightable>(out Highlightable highlightable))
+            if (!obj.TryGetComponent<Highlightable>(out Highlightable highlightable))
             {
                 obj.gameObject.AddComponent<Highlightable>();
             }

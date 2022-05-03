@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     public bool influenceable = true;
 
     private bool focusing;
+    private bool pause = true;
     private GameObject focus;
     private Vector3 focusOffset;
     private Vector3 defaultOffset;
@@ -36,7 +37,14 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0.0f;
+            if (pause)
+            {
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
             transform.position = Vector3.Lerp(transform.position, focus.transform.position + focusOffset, snapSpeed * Time.unscaledDeltaTime * snapSpeed);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(focus.transform.position - transform.position), snapSpeed * Time.unscaledDeltaTime * snapSpeed);
         }
@@ -71,11 +79,21 @@ public class CameraFollow : MonoBehaviour
     {
         return defaultOffset;
     }
+
     public void Focus(GameObject obj, Vector3 offsetPos) 
     {
         focusing = true;
         focus = obj;
         focusOffset = offsetPos;
+        pause = true;
+    }
+
+    public void Focus(GameObject obj, Vector3 offsetPos, bool toPause)
+    {
+        focusing = true;
+        focus = obj;
+        focusOffset = offsetPos;
+        pause = toPause;
     }
 
     public void Unfocus()
