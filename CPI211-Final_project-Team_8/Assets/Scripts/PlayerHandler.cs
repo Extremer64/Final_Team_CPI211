@@ -162,6 +162,11 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    public void Teleport(Vector3 position)
+    {
+        navMesh.Warp(position);
+    }
+
     public void AddPoint(TravelPoint newPoint)
     {
         travPoint = newPoint;
