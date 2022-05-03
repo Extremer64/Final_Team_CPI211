@@ -1757,7 +1757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5239727927202405695, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6818006673456831887, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: PuzzleUI
