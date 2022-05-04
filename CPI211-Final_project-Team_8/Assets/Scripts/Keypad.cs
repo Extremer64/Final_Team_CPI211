@@ -18,9 +18,16 @@ public class Keypad : Interactable
     private float delay = 0.0f;
     private float clickDelay;
 
+    private AudioSource[] audioSources;
+    private AudioSource PushButton;
+    private AudioSource Error;
+
     void Start()
     {
         cameraFollow = FindObjectOfType<CameraFollow>();
+        audioSources = GetComponents<AudioSource>();
+        PushButton = audioSources[0];
+        Error = audioSources[1];
     }
 
     void Update()
@@ -51,6 +58,7 @@ public class Keypad : Interactable
                         {
                             if (displayAndButtons[i] == hit.transform.gameObject)
                             {
+                                PushButton.Play();
                                 input *= 10;
                                 input += i;
                             }
@@ -96,6 +104,7 @@ public class Keypad : Interactable
     {
         if (inputNum > 99999)
         {
+            Error.Play();
             input = 0;
             return "- - - - -";
         }
