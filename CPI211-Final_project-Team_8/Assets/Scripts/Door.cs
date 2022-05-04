@@ -7,6 +7,7 @@ public class Door : Interactable
     private CameraFollow cameraFollow;
     private AudioSource audioSource;
     public bool isCorrect;
+    public bool isExit;
     public AudioClip audioClip;
     PlayerHandler pHandle;
     public GameObject player;
@@ -49,7 +50,14 @@ public class Door : Interactable
 
     public override void Interact()
     {
-        moveDoor();
+        if (!isExit)
+        {
+            moveDoor();
+        }
+        else
+        {
+            GetComponent<Exit>().Interact();
+        }
     }
 
     private void moveDoor()
