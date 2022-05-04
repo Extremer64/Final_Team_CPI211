@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.599
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35275888, g: 0.34763622, b: 0.34194428, a: 0.599}
+  m_IndirectSpecularColor: {r: 0.3527586, g: 0.3476358, b: 0.34194395, a: 0.599}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6822,6 +6822,7 @@ GameObject:
   - component: {fileID: 384508158}
   - component: {fileID: 384508157}
   - component: {fileID: 384508161}
+  - component: {fileID: 384508162}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Sphere
@@ -7001,6 +7002,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &384508162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384508156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cccd5965f3e6a244a712cd1d33bdfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  nextLevel: 6
 --- !u!1 &386984978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 790af9f1ce4b6d845a7750d4cb54424a, type: 3}
