@@ -107,7 +107,7 @@ public class PlayerHandler : MonoBehaviour
                 isApproaching = false;
                 navMesh.SetDestination(transform.position);
             }
-            else if (Vector3.Distance(transform.position, npcTarget.transform.position) < deactivationRange * (npcTarget.transform.lossyScale.magnitude / 3.5f))
+            else if (Vector3.Distance(transform.position, npcTarget.transform.position) < (deactivationRange * (npcTarget.transform.lossyScale.magnitude / 4.0f)) + 4.0f)
             {
                 isApproaching = false;
                 if (!npcTarget.GetTalking())
@@ -117,7 +117,6 @@ public class PlayerHandler : MonoBehaviour
                 navMesh.SetDestination(transform.position);
                 travPoint.SetInactive();
             }
-            Debug.Log(npcTarget.transform.lossyScale.magnitude);
         }
         else if (isInteracting)
         {
