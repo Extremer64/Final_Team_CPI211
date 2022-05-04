@@ -1745,11 +1745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -394
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 1290566343683673542, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 219
+      value: 168
       objectReference: {fileID: 0}
     - target: {fileID: 1290566343683673543, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_IsActive
@@ -1858,6 +1858,10 @@ PrefabInstance:
     - target: {fileID: 8082983227438085669, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662417233667970473, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57eae161baba1c5459a993f6345c07f6, type: 3}
