@@ -16,11 +16,14 @@ public class Grave : Interactable
 
     public GameObject skel;
 
+    private AudioSource Dig;
+
     void Start()
     {
         interactTag = "Grave";
         cameraFollow = FindObjectOfType<CameraFollow>();
         switchboard = FindObjectOfType<Switchboard>();
+        Dig = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,6 +53,7 @@ public class Grave : Interactable
     {
         if (!dug)
         {
+            Dig.Play();
             dug = true;
             GetComponent<Collider>().enabled = false;
             digTimer = digTime;

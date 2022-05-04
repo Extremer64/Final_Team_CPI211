@@ -79,15 +79,15 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 7 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong\nIs this a graveyard??";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Waking up here is getting tiring\nSomething is extremely wrong\nIs this a graveyard??\nThere was a shovel next to my bed...";
         }
         else if (Puzzle == 8 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "This place is much more dangerous than the last few\nIt is kind of disgusting digging up graves,\nbut I guess you gotta do what you gotta do";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "This place is much more dangerous than the last few\nI did find some piece in that grave but it is kind of disgusting digging up graves,\nbut I guess you gotta do what you gotta do in this strange world";
         }
         else if (Puzzle == 9 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "FINALLY I have all of them\nMaybe I can finally get out of here";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "The Pieces seem to take the shape of a key\nNot exactly sure how to put them together\nIf I can maybe I can finally get out of here";
         }
         else if (Puzzle == 10 && updatenotes)
         {
