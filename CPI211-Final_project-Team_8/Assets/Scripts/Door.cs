@@ -12,6 +12,7 @@ public class Door : Interactable
     PlayerHandler pHandle;
     public GameObject player;
     private float newZ;
+    private AudioSource Unlock;
 
     void Start() { 
         interactTag = "MazeDoor";
@@ -25,6 +26,8 @@ public class Door : Interactable
             audioSource.clip = audioClip;
             audioSource.priority = 0;
         }
+        Unlock = GetComponent<AudioSource>();
+        Unlock.loop = false;
     }
 
     void Update()
@@ -62,6 +65,7 @@ public class Door : Interactable
 
     private void moveDoor()
     {
+        Unlock.Play();
         //Debug.Log(pHandle.disable);
         StartCoroutine("tele");
         //Destroy(gameObject);
