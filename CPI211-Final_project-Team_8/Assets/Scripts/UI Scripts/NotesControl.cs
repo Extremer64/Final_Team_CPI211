@@ -55,15 +55,15 @@ public class NotesControl : MonoBehaviour
         }
         else if(Puzzle == 1 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I've woken up in your bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help\nHe's always been there for me";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I've woken up in my bed \nSomething isn't right\nMight as well take a look around\nMaybe Big Ted can help\nHe's always been there for me";
         }
         else if (Puzzle == 2 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Puzzle Pieces...\nMaybe Completing the Puzzle will help\nThere seem to be a few lying around\nWhere is everyone";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Puzzle Pieces...\nThere seem to be a few lying around\nWhere is everyone?";
         }
         else if (Puzzle == 3 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Well thats all the pieces...\nMaybe Completing the puzzle will do something";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "Well thats all the pieces...\nMaybe Completing that puzzle will do something\nIt certainly seems to be weird sitting in the room like that...";
         }
         else if (Puzzle == 4 && updatenotes)
         {
@@ -75,7 +75,7 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 6 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I made it through that door\nNow something is VERY wrong here\n....Is that....a Parrot??\nI guess this is a pirate ship...";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I made it through that door\nNow something is VERY wrong here\n....Is that sound....a Parrot??\nI guess this is a pirate ship...";
         }
         else if (Puzzle == 7 && updatenotes)
         {

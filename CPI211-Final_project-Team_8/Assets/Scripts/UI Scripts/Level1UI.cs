@@ -25,11 +25,12 @@ public class Level1UI : MonoBehaviour
             NotesControl.Puzzle = 2;
             PuzzleUI.SetActive(true);
         }
-        
+
         if (switchboard.CheckPuzzlePieces())
         {
             NotesControl.Puzzle = 3;
         }
+
 
         int PuzzlePieces = switchboard.CountPieces(switchboard.puzzlePieces, true);
         PuzzleNumber.GetComponent<TMPro.TextMeshProUGUI>().text = ":" + PuzzlePieces + "/9";
