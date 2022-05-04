@@ -34,14 +34,14 @@ public class NotesControl : MonoBehaviour
                 Notes.SetActive(false);
                 noteup = false;
             }
-        if (Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
-        {
-            NotesControl.Puzzle = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            NotesControl.Puzzle += 1;
-        }
+//        if (Puzzle != 0 && Input.GetKeyDown(KeyCode.O))
+//        {
+//            NotesControl.Puzzle = 0;
+//        }
+//        else if (Input.GetKeyDown(KeyCode.P))
+//        {
+//            NotesControl.Puzzle += 1;
+//        }
 
         if (LastPuzzle != Puzzle)
         {
