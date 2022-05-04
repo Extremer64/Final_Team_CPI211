@@ -75,7 +75,7 @@ public class NotesControl : MonoBehaviour
         }
         else if (Puzzle == 6 && updatenotes)
         {
-            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I made it through that door\nNow something is VERY wrong here\n....Is that sound....a Parrot??\nI guess this is a pirate ship...";
+            noteContent.GetComponent<TMPro.TextMeshProUGUI>().text = "I made it through that door\nNow something is VERY wrong here\n....Is that sound....a Parrot??\nI guess this is a pirate ship...\nBut why are there so many doors?";
         }
         else if (Puzzle == 7 && updatenotes)
         {
