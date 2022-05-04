@@ -164,6 +164,13 @@ public class Switchboard : MonoBehaviour
 
     public bool CheckKey(int level)
     {
-        return levelComplete[level];
+        if (level < levelComplete.Length)
+        {
+            return levelComplete[level];
+        }
+        else
+        {
+            return true;
+        }
     }
 }
